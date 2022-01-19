@@ -32,7 +32,7 @@ security:
                 # login_path: login #qd une pers va vouloir s'auth? qd il sera sur la route connex
                 # check_path: login # les infos sont récupérées sur la route connexion
                 # default_target_path: accueil
-                # enable_csrf: true
+                enable_csrf: true
 
 
             login_link:
@@ -54,6 +54,8 @@ security:
          - { path: ^/ajouter, roles: ROLE_USER }
          - { path: ^/ajout_commentaire, roles: ROLE_USER }
          - { path: ^/ajout_favoris, roles: ROLE_USER }
+         
+
          #- { path: ^/index, roles: ROLE_USER }
 
          

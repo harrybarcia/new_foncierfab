@@ -7,6 +7,9 @@
     {% for notification in app.flashes('success') %}
         <div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
     {% endfor %}
+    {% for notification in app.flashes('warning') %}
+        <div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
+    {% endfor %}
 
 <form method="post" >
     {% if error %}
@@ -28,6 +31,9 @@
         <label  for="inputPassword">Mot de passe</label>
         <input class="form-control col-md-4 mx-auto" type="password" name="password" id="inputPassword" autocomplete="current-password" required>
     </div>
+        <div class="mb-3">
+            <a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
+        </div>
 
     <input type="hidden" name="csrf_token" value="{{ csrf_token('login_form') }}">
         
