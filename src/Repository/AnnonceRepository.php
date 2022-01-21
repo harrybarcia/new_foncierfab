@@ -29,11 +29,44 @@ class AnnonceRepository extends ServiceEntityRepository
      */
     public function findSearch(SearchData $search): PaginationInterface
     {
+        $query = $this
+            ->createQueryBuilder('an')
+            ->select('c', 'an')
+            ->join('an.categorie', 'c');
+            
+            if (!empty($search->q)) {
+                $query = $query
+                ->andWhere('an.titre LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+            }
+
+            if (!empty($search->min)) {
+                $query = $query
+                ->andWhere('an.prix >= :min')
+                ->setParameter('min', $search->min);
+            }
+            
+            if (!empty($search->max)) {
+                $query = $query
+                ->andWhere('an.prix <= :max')
+                ->setParameter('max', $search->max);
+            }
+            
+            
+            
+            if (!empty($search->categorie)) {
+                $query = $query
+                ->andWhere('c.id IN (:categorie)')
+                ->setParameter('categorie', $search->categorie);
+            }
+            
+            
         $query = $this->getSearchQuery($search)->getQuery();
         return $this->paginator->paginate(
             $query,
             $search->page,
-            100
+            5
+            
         );
     } 
     /**

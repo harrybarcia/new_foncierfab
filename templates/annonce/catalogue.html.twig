@@ -18,19 +18,19 @@
 
 	{% if annonces %}{# {% if annonces is not empty %} #}<div class="row justify-content-around ">
 			{% for annonce in annonces %}
-				<div class="col-md-5 cardCatalogue p-3 m-2 ">
+				<div class=" cardCatalogue col-md-5 p-3 " style="overflow:hidden">
 					<div class="row" style="justify-content: space-around;border:1px black solid;border-radius:6px;background-color:#F8F8F8">
-						<div class="col-md-5" >
+						<div class="col-md-7 card-catalogue-image " style="max-height:300px" >
 							{% if annonce.photos is not empty %}
-								<img src="{{ asset("images/imagesUpload/" ~ annonce.photos[0].nom ) }}" alt="" style="width:100%"> 
+								<img src="{{ asset("images/imagesUpload/" ~ annonce.photos[0].nom ) }}" alt="" style="width: 100%;object-fit: cover;height: 100%;"> 
 							{% else %}
 								<img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:198px">
 							{% endif %}
 						</div>
-						<div class="col-md-5" style="padding-left: 24px;text-align: center ">
+						<div class="col-md-5" style="padding: 16px;text-align: center ">
 							<h5>{{ annonce.titre|capitalize }}</h5>
 							<h5>{{ annonce.prix }}€</h5>
-							<p class="text text-muted">{{ annonce.descriptionlongue }}€</p>
+							<p class="text text-muted" style="text-align:justify">{{ annonce.descriptionlongue }}</p>
 							<a class="btn btn-danger" href="{{ path('fiche_annonce', {'id' : annonce.id}) }}" class="mt-2">Voir la fiche</a>
 						</div>
 					</div>

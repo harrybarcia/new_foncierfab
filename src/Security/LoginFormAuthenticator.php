@@ -44,7 +44,7 @@ class LoginFormAuthenticator extends AbstractAuthenticator
         // dd($user);
         // ou findOneBy(['email'=> $request->request->get('email')])
         if (!$user) {
-            throw new UserNotFoundException('invalid credentials');
+            throw new UserNotFoundException('Votre email ou mot de passe est invalide');
         }
 
         return new Passport($user, new PasswordCredentials($request->request->get('password')), [

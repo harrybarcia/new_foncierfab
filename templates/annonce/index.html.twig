@@ -33,12 +33,12 @@
 <div id="message" class="alert alert-danger"  style="padding:0;border:0;margin:0 auto;font-weight:bold; position:fixed;z-index:10000"></div>
     {# barre de recherche #}
     
-    <div class="container-fluid navbartwo" style="position: fixed;background-color: beige;z-index: 10;height: 60px;overflow-y:auto;">
-    <svg class="arrow" style="position: fixed;margin-top: 26px;" id="prev_Btn" stroke="#1D2026" width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke-width="3" fill="none" fill-rule="evenodd"></path></svg>
-        <div class="span6 offset3 navbar" style="padding-top:0">
+    <div class="container-fluid navbartwo" style="position: fixed;background-color: white;z-index: 10;height: 62px;overflow-y:auto;border: 1px solid #757373;">
+    
+        <div class="span6 offset3 navbar-left" style="padding-top:0">
             <div class="navbar-inner" style="margin:0 auto;position:relative">
                 
-                <form id="filters" class="filtre_navbar2">
+                <form id="filters" class="filtre_navbar2" >
     
                     {% for categorie in categories %}
                         {# On vérifie si la catégorie est dans les paramètres #}
@@ -64,7 +64,8 @@
 
 
                     <input type="hidden" name="page" value="{{page}}">
-                    <svg class="arrow" style="margin: 23px 0 0 0px" id="next_Btn" stroke="#1D2026" width="16" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke-width="3" fill="none" fill-rule="evenodd"></path></svg>
+    
+                    
                 </form>
 
             </div>
@@ -78,30 +79,33 @@
 
     {# left #}
     
-    
-<div class="col-md-5 mx-2 " style="margin-top:75px!important;">
 
-	<div id="content">
-		{% include "annonce/_content.html.twig" %}
-	</div>
-</div>
+    <div class="col-md-5 mx-2 " style="margin-top:75px!important;">
 
-    {# <div class="mt-4">{{ knp_pagination_render(annonces) }}</div> #}
+        <div id="content">
+            {% include "annonce/_content.html.twig" %}
+        </div>
+    </div>
+  
+        <div class="mt-4">
+            {{ knp_pagination_render(annonces) }}
+        </div>
 <div id="carto-mini">
 
 
-        <span style="display:flex;">
-            <span>Carte</span>
-            <div style=";    margin-top: 5px;bottom: 48px !important;z-index: 10000 !important;white-space: nowrap !important;left: 33% !important;font-size: 1.1em;border-radius: 24px !important;border: 1px solid rgba(0, 0, 0, 0.08) !important;outline: none !important;margin: 0px !important;color: darkviolet !important;cursor: pointer !important;touch-action: manipulation !important;font-weight: bold;width:auto;">
-                <svg viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="margin-top:2px;display: block; height: 16px;margin-left:10px; width: 16px; fill: rgb(255, 255, 255);">
-                    <path d="M31.245 3.747a2.285 2.285 0 0 0-1.01-1.44A2.286 2.286 0 0 0 28.501 2l-7.515 1.67-10-2L2.5 3.557A2.286 2.286 0 0 0 .7 5.802v21.95a2.284 2.284 0 0 0 1.065 1.941A2.29 2.29 0 0 0 3.498 30l7.515-1.67 10 2 8.484-1.886a2.285 2.285 0 0 0 1.802-2.245V4.247a2.3 2.3 0 0 0-.055-.5zM12.5 25.975l-1.514-.303L9.508 26H9.5V4.665l1.514-.336 1.486.297v21.349zm10 1.36l-1.515.337-1.485-.297V6.025l1.514.304L22.493 6h.007v21.335z"></path>
-                </svg>
-            </div>
-        </span>
+	<span style="display:flex;">
+		<span>Carte</span>
+		<div style=";    margin-top: 5px;bottom: 48px !important;z-index: 10000 !important;white-space: nowrap !important;left: 33% !important;font-size: 1.1em;border-radius: 24px !important;border: 1px solid rgba(0, 0, 0, 0.08) !important;outline: none !important;margin: 0px !important;color: darkviolet !important;cursor: pointer !important;touch-action: manipulation !important;font-weight: bold;width:auto;">
+			<svg viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="margin-top:2px;display: block; height: 16px;margin-left:10px; width: 16px; fill: rgb(255, 255, 255);">
+				<path d="M31.245 3.747a2.285 2.285 0 0 0-1.01-1.44A2.286 2.286 0 0 0 28.501 2l-7.515 1.67-10-2L2.5 3.557A2.286 2.286 0 0 0 .7 5.802v21.95a2.284 2.284 0 0 0 1.065 1.941A2.29 2.29 0 0 0 3.498 30l7.515-1.67 10 2 8.484-1.886a2.285 2.285 0 0 0 1.802-2.245V4.247a2.3 2.3 0 0 0-.055-.5zM12.5 25.975l-1.514-.303L9.508 26H9.5V4.665l1.514-.336 1.486.297v21.349zm10 1.36l-1.515.337-1.485-.297V6.025l1.514.304L22.493 6h.007v21.335z"></path>
+			</svg>
+		</div>
+	</span>
 
-    </div>
+</div>
 
-    <div class="modal"><!-- Place at bottom of page --></div>
+<div class="modal"><!-- Place at bottom of page --></div>
+
 {% endblock %}
 
 
@@ -314,6 +318,22 @@ if(array_ck.length==0){
       document.querySelectorAll('input[type=checkbox]')[i].checked=true
     }
 }
+
+
+
+$("#arrow-left").click(function(){
+  console.log("left")
+   $(".navbar-left").css("transform", "translate(60px)");
+   $(".navbar-left").css("transform", "transition: all 2.5s ease");
+  
+});
+$("#arrow-right").click(function(){
+  console.log("right")
+   $(".navbar-left").css("transform", "translate(60px)");
+   $(".navbar-left").css("transform", "transition: all 2.5s ease");
+  
+});
+
 
 
 </script>
