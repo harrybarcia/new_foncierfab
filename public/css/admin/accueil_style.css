@@ -568,6 +568,7 @@ border-color: 1px solid black;
     left:       0;
     height:     100%;
     width:      100%;
+    /* roue attente */
     background: rgba( 255, 255, 255, .8 ) 
                 url('http://i.stack.imgur.com/FhHRx.gif') 
                 50% 50% 
@@ -603,6 +604,7 @@ body.loading .modal {
 }
 
 .wrapper {
+        /* fond violet */
         background:url(https://i.gyazo.com/74f0fa6b9d9ed6652f3e220ceae113cf.png) no-repeat center;
         width: 100%;
         background-repeat: repeat!important;

@@ -323,9 +323,16 @@ class AnnonceController extends AbstractController
             
             
         }
-        // pour la partie carto du menu gauche
-        $requetes=$request->query->all();
         
+        // pour la partie carto du menu gauche
+
+        $requetes=$request->query->all();
+        /* dd($requetes); */// renvoit array:3 ["q" => "" "min" => """max" => ""      ]
+        if (isset($requetes)) {
+            $requetes['q']="";
+
+        }
+                
         //dump($requetes);
         $data=new SearchData(); // je créé un objet et ses propriétés (q et categorie) et je le stocke dans $data
         
