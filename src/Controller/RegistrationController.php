@@ -45,7 +45,7 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            $this->addFlash('success', 'Votre compte a bien été créé');
+            $this->addFlash('success', 'Votre compte a bien été créé, un mail vient de vous être envoyé pour activer votre compte');
 
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,

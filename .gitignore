@@ -24,9 +24,9 @@ public_html
 test.txt
 test/
 
-config
-src
-templates
-composer.json
-composer.lock
-symfony.lock
+# config
+# src
+# templates
+# composer.json
+# composer.lock
+# symfony.lock
