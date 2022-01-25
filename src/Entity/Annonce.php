@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping\JoinTable;
 use App\Repository\AnnonceRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
@@ -21,12 +22,14 @@ class Annonce
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir un nom")
      * @ORM\Column(type="string", length=255)
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez saisir une description")
      */
     private $descriptioncourte;
 
@@ -37,26 +40,31 @@ class Annonce
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Veuillez saisir un prix")
      */
     private $prix;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Veuillez saisir une surface")
      */
     private $surface;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez saisir une adresse")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez saisir un code postal")
      */
     private $cp;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez saisir une ville")
      */
     private $ville;
 

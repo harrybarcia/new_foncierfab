@@ -15,24 +15,6 @@
 
  <style>
 
-/*.card {*/
-/*    position: relative;*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    min-width: 0;*/
-/*    word-wrap: break-word;*/
-/*    width:50%;*/
-/*    margin-bottom:2em;*/
-/*    background-clip: border-box;*/
-/*    border: 1px solid rgba(0,0,0,.125);*/
-/*    border-radius: 0.25rem;*/
-/*    justify-content: space-between;*/
-/*};*/
-
-
-
-      
-
 
 
     @media screen and (max-width: 991px) {
@@ -72,8 +54,12 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top wrapper">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ path('accueil') }}">
-                    <img src="{{ asset('images/logo0.PNG') }}" alt="">
+                <a class="navbar-brand" href="{{ path('accueil') }}" >
+                    <img src="{{ asset('images/logo1.JPG') }}" style="height:2em" alt="">
+                    <div style="position:absolute;color:white;margin-top:-15px;font-size:12px;margin:right:20px">
+                        FoncierFAB
+                    </div>
+                    
                     
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -162,4 +148,5 @@
         {% block javascripts %}{% endblock %}
         
     </body>
+
 </html>

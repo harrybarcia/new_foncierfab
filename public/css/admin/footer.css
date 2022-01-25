@@ -1,0 +1,115 @@
+/*----------------
+---Footer---
+----------------*/
+
+footer{
+	font-family: Circular,Helvetica,Arial,sans-serif;
+	width: 100%;
+	height: 100%;
+	
+	background:url(https://i.gyazo.com/74f0fa6b9d9ed6652f3e220ceae113cf.png)  center;
+	
+	background-color: #2b2d2e;
+}
+.footer-content{
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.footer-content hr{
+	background: #555758;
+	margin-bottom: 27px;
+}
+.footer-row{
+	width: 100%;
+	
+	
+	margin-bottom: 50px;
+}
+
+.visited_on_hover:hover {
+    text-decoration: underline!important;
+} 
+
+a:link, a:visited {
+    color: white;
+	text-decoration: none;
+	
+}
+
+	@media screen and (max-width: 576px) {
+		.lists{
+			flex-direction: column;
+			height:auto;
+			
+		}
+		.li{
+			text-align: center;
+		}
+		.footer-row{
+			padding-left:0 ;
+		}
+}
+
+.lists ul{
+	color: #fff;
+	list-style: none;
+
+	
+	height: auto;
+}
+.lists ul h3{
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+.lists ul li{
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+.socialnetworks{
+	width: 100%;
+	height: 82px;
+	margin-bottom: 15px;
+}
+.socialnetworks h2{
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.icons{
+	width: 100%;
+	height: 100%;
+  
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  
+}
+.icons div{
+
+	
+	width: 35px;
+	height: 35px;
+	border: 1px solid #fff;
+	border-radius: 100%;
+	padding: 7px;
+	margin-right: 16px;
+}
+.icons div:last-child{
+	margin-right: 0;
+}
+.icons div svg{
+	color: red;
+	width: 18px;
+	height: 18px;
+	color: #fff;
+	margin:10px;
+}
+
+.copyright{
+	text-align: center;
+	color: #767676;
+	font-size: 14px;
+}

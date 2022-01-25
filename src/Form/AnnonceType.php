@@ -48,7 +48,8 @@ class AnnonceType extends AbstractType
                 ->add('prix')
                 ->add('surface')
                 ->add('adresse')
-                ->add('cp')
+                ->add('cp', TextType::class, [
+                    "label" => "Code postal"])
                 ->add('ville')
                 
                 ->add('photo', FileType::class, [
@@ -114,10 +115,10 @@ class AnnonceType extends AbstractType
                     ]
                 ])
                 ->add('cp', TextType::class, [
-                    "label"=>"CP",
+                    "label"=>"Code postal",
                     "required" => false,
                     "attr" => [
-                        "placeholder" => "Saisir le CP",
+                        "placeholder" => "Saisir le Code postal",
                         "class" => "bg-warning",
                     ]
                 ])
