@@ -289,6 +289,9 @@ body {
                         width: 487px;
                         margin-left: 258px;
                 }
+                #description{
+                        width:60%!important
+                }
                 .middle-p{
                         
                         margin-left: 5px;
@@ -364,6 +367,10 @@ body {
         .mapboxgl-ctrl .mapboxgl-ctrl-group { position: absolute; bottom: 0; right: 0; width: 100%; }
         .image_catalogue{
                 width: 400px!important;
+                
+        }
+        .image_catalogue .default{
+                width: 350px!important;
                 
         }
         

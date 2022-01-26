@@ -31,7 +31,7 @@
 			{% if annonce.photos is not empty %}
 				<img src="{{ asset("images/imagesUpload/" ~ annonce.photos[0].nom ) }}" alt="" class="image_catalogue">
 			{% else %}
-				<img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:100%">
+				<img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width: 100%;object-fit: cover;height: 100%;" class="image_catalogue" >
 			{% endif %}
 
 			<div class="card-body" style="flex: 1 1 auto;padding: 1rem 1rem;display: flex;flex-direction: column;justify-content: space-between;">

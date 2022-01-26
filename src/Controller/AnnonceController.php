@@ -96,14 +96,25 @@ class AnnonceController extends AbstractController
      * 
      * @Route("/afficher/fiche_annonce/{id<\d+>}", name="fiche_annonce")
      */
-    public function fiche_annonce(Annonce $annonceObject, AnnonceRepository $repoannonce, CommentaireRepository $repocommentaire)
+    public function fiche_annonce(Annonce $annonceObject, AnnonceRepository $repoannonce, CommentaireRepository $repocommentaire, )
                 // $id, annonceRepository $repoannonce    
         {
-            
             $mesannonces=($annonceObject->getId());
+            $comments_tab=sizeof($repocommentaire->findBy(["annonce"=>$mesannonces]));
+
+            $user = $this->getUser()->getId();
+            $fav=sizeof($annonceObject->getFavoris());
+            
+
+            // $repoannonce->findBy((["id"=>34]));
+            // dd($repoannonce);// renvoie un objet
+            // $deja_favoris=()->getFavoris();
+            // dd(sizeof($deja_favoris));
             return $this->render("annonce/fiche_annonce.html.twig", [
                 "annonce"=>$annonceObject,
                 "commentaires"=>$repocommentaire->findBy(["annonce"=>$mesannonces]),
+                "comments_tab"=>$comments_tab,
+                "fav"=>$fav
             ]);
         }
 
@@ -128,7 +139,7 @@ class AnnonceController extends AbstractController
         }
         // ----------Je créé un nouvel objet annonce------------
         $annonce=new Annonce;
-        //dd($annonce);
+        // dd($annonce);
         $form = $this->createForm(AnnonceType::class, $annonce, array("ajouter"=>true));
         $form->handleRequest($request);
         

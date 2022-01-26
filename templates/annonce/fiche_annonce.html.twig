@@ -19,7 +19,7 @@
     {% if annonce.photos is not empty %}
     console.log("dedans");
                 let sujetArray = [];
-
+        
                 {% for sujet in annonce.photos %}
                 sujetArray.push("{{asset("images/imagesUpload/"~sujet.nom)}}");{% endfor %}
                 
@@ -27,15 +27,67 @@
                 
                 Make_Img_Slider(sujetArray)
 
-        
-    {% else %}
-        {{ asset('images/imageDefault.jpg') }}
     {% endif %}
 
                 
     </script>
+        {% if annonce.photos is empty %}
+
+
+        <img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:320px">
+
+        {% endif %}
 </div>
-        <h5 class="text-center text-danger"> {{ annonce.prix}} €</h5>
+        
+        
+        <div style="width:90%;margin:0 auto" id="description">
+            <div>
+                Annonce postée par {{annonce.user.email}} le {{ annonce.dateenregistrement|format_datetime(locale='fr') }}
+            </div>
+            <div class="row p-1" style="display:flex;flex-direction:row">
+                <div class="col-md-5 col-sm-11 p-3 col-xs-11 col-xl-5" style="padding:10%">
+                    <div style="text-align: justify;width:90%;justify-content:space-between"><strong>Titre: </strong>
+                        <span >{{annonce.titre}} </span>
+                        <br>
+                        <br>
+                    </div>
+                    <div style="text-align: justify; width:90%;justify-content:space-between">
+                        <span><strong>Description: </strong> {{annonce.descriptionlongue}} </span>
+                        <br>
+                        <span> {{annonce.descriptioncourte}} </span>
+                        <br>
+                    </div>
+                    <div style="text-align: justify; width:90%;justify-content:space-between">
+                        <span><strong>Adresse: </strong> {{annonce.adresse}} </span>
+                    </div>
+                </div>
+                <div  class="col-md-5 col-sm-11 p-3 col-xs-11 col-xl-5" style="color:grey">
+                    <h5>
+                        {% if fav == 1 %}
+                            une personne est déjà intéressée par cette annonce
+                        
+                        {% endif %}
+                        {% if fav > 1 %}
+                            {{fav}} personnes sont intéressées par cette annonce
+                        
+                        {% endif %}
+                        
+                    </h5>
+                    <h5>
+                        {% if comments_tab ==1 %}
+                            {{comments_tab}} 1 commentaire a été déposé
+                        
+                        {% endif %}
+                        {% if comments_tab > 1 %}
+                            {{comments_tab}} commentaires ont été déposés
+                        
+                        {% endif %}
+                    </h5>
+                <span><strong>Prix: </strong> {{annonce.prix | number_format(0, ',', ' ')}} €</span>
+                </div>
+            </div>
+	</div>
+        
 
 <div style="background-color:#F9F9F9;height:51vh">
 

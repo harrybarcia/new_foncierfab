@@ -41,12 +41,22 @@ class Annonce
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Veuillez saisir un prix")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 100000000,
+     *      notInRangeMessage = "Le prix doit être supérieur à {{ min }} €",
+     * )
      */
     private $prix;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Veuillez saisir une surface")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 10000,
+     *      notInRangeMessage = "La surface doit être comprise entre  {{ min }} m² et {{ max }} m² ",
+     * )
      */
     private $surface;
 

@@ -242,7 +242,7 @@
 
 });
     {% for coord in coords %}
-      {{coord.annonce.prix}}
+      {{coord.annonce.prix | number_format(0, ',', ' ')}}
       // ajout points annonces sur la map
         new mapboxgl.Marker({offset: [0, -15],closeOnClick:true, closeButton:false })
           .setLngLat([{{coord.long}}, {{coord.lat}}])

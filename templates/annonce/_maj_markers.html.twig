@@ -224,7 +224,7 @@ let sujetArray = [];
       <img src="{{ asset("images/imagesUpload/" ~ coord.annonce.photos[0].nom ) }}" alt="" style="width:274px;max-height: 182px;object-fit: cover">
     {% else %}
 
-      <img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:274px;border-radius:3%">
+      <img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:274px;max-height: 182px;object-fit: cover">
     {% endif %}
     <div class="text">
     <span style="overflow: hidden;

@@ -24,7 +24,7 @@
 							{% if annonce.photos is not empty %}
 								<img src="{{ asset("images/imagesUpload/" ~ annonce.photos[0].nom ) }}" alt="" style="width: 100%;object-fit: cover;height: 100%;"> 
 							{% else %}
-								<img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:198px">
+								<img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width: 100%;object-fit: cover;height: 100%;">
 							{% endif %}
 						</div>
 						<div class="col-md-5" style="padding: 16px;text-align: center ">
