@@ -40,7 +40,7 @@
 					{{ annonce.prix | number_format(0, ',', ' ') }}
 					€
 				</div>
-				<a class="text text-muted" href="{{ path('fiche_annonce', {'id' : annonce.id}) }}">{{ annonce.descriptionlongue }}</a>
+				<a class="text text-muted" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;line-clamp: 3; -webkit-box-orient: vertical;max-height: 120px;" href="{{ path('fiche_annonce', {'id' : annonce.id}) }}">{{ annonce.descriptionlongue }}</a>
 				<a class="btn btn-danger" href="{{ path('fiche_annonce', {'id' : annonce.id}) }}" class="mt-2">{{ annonce.categorie.type }}</a>
 
 
