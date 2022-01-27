@@ -13,20 +13,21 @@
         <div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
     {% endfor %}
     
-<div class="col-md-6 mx-auto">
-        {{ form_start(formAnnonce_modif) }}
-        {{ form_row(formAnnonce_modif.titre) }}
-        {{ form_row(formAnnonce_modif.descriptioncourte) }}
-        {{ form_row(formAnnonce_modif.descriptionlongue) }}
-        {{ form_row(formAnnonce_modif.prix) }}
-        {{ form_row(formAnnonce_modif.surface) }}
-        {{ form_row(formAnnonce_modif.cp) }}
-        {{ form_row(formAnnonce_modif.ville) }}
-        {{ form_row(formAnnonce_modif.categorie) }}
+        <div class="col-md-6 mx-auto">
+            {{ form_start(formAnnonce_modif) }}
+            {{ form_row(formAnnonce_modif.titre) }}
+            {{ form_row(formAnnonce_modif.descriptioncourte) }}
+            {{ form_row(formAnnonce_modif.descriptionlongue) }}
+            {{ form_row(formAnnonce_modif.prix) }}
+            {{ form_row(formAnnonce_modif.surface) }}
+            {{ form_row(formAnnonce_modif.adresse) }}
+            {{ form_row(formAnnonce_modif.cp) }}
+            {{ form_row(formAnnonce_modif.ville) }}
+            {{ form_row(formAnnonce_modif.categorie) }}
 
 
-        
-        {{ form_row(formAnnonce_modif.photoFile, {'attr' : {"onChange" : "loadFile(event)"}} ) }}
+            
+            {{ form_row(formAnnonce_modif.photoFile, {'attr' : {"onChange" : "loadFile(event)"}} ) }}
 
                 <div class="row justify-content-center ">
                     <div class="col-md-6">
@@ -47,23 +48,23 @@
                         {% endfor %}
                         style="width:300px">
                     </div>
-                        {% for item in annonce.photos %}
-                            {% if item.nom %}
+                        
+                        
                                 <div class="col-md-6">
                                 <a href="{{ path('image_annonce_supprimer' , {'id' : annonce.id } ) }}">
                                     <img src="{{ asset("images/delete.png")}}" alt="">
                                 </a>
                                 </div>
                             
-                            {% endif %}
-                            
-                        {% endfor %}
+                                                    
+                        
+                        
                     
                     
                 </div>
-        <input type="submit" value="Modifier" class="col-md-12 btn btn-dark mt-3">
-        {{ form_end(formAnnonce_modif) }}
-    </div>
+        </div>
+    <input type="submit" value="Enregistrer les modifications" class="col-md-12 btn btn-dark mt-3">
+    {{ form_end(formAnnonce_modif) }}
 
 
 {% endblock %}

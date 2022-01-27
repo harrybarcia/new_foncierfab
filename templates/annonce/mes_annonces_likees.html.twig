@@ -1,4 +1,6 @@
 {% extends "base.html.twig" %}
+{% block title %}Mes favoris
+{% endblock %}
 {% block body %}
     {% for notification in app.flashes('success') %}
         <div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
