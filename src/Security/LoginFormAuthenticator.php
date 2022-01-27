@@ -39,7 +39,7 @@ class LoginFormAuthenticator extends AbstractAuthenticator
     {
         $this->userRepository=$userRepository;
         $this->urlGenerator = $urlGenerator;
-        dump("1");
+        
         $test=($urlGenerator->getContext()->getPathInfo()); // renvoit "/afficher/fiche_annonce/21"
         
         return $test;

@@ -249,8 +249,8 @@ body {
                 .row{
                         flex-direction: column-reverse;
                 }
-                .middle-text{
-                        flex-direction:column;
+                .row .accueil{
+                        flex-direction: column;
                 }
                 .left{
                         margin-top: 3em;
