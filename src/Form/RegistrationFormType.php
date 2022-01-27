@@ -20,6 +20,7 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
+                'required'=>false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Merci de bien vouloir valider notre politique d\'agrément',
@@ -30,6 +31,7 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
+                'required'=>false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([

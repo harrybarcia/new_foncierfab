@@ -1,5 +1,7 @@
 security:
     enable_authenticator_manager: true
+    hide_user_not_found: false
+
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
@@ -32,6 +34,7 @@ security:
                 # login_path: login #qd une pers va vouloir s'auth? qd il sera sur la route connex
                 # check_path: login # les infos sont récupérées sur la route connexion
                 # default_target_path: accueil
+                # use_referer: true
                 enable_csrf: true
 
 
@@ -54,6 +57,7 @@ security:
          - { path: ^/ajouter, roles: ROLE_USER }
          - { path: ^/ajout_commentaire, roles: ROLE_USER }
          - { path: ^/ajout_favoris, roles: ROLE_USER }
+         
          
 
          #- { path: ^/index, roles: ROLE_USER }

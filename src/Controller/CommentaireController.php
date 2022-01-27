@@ -19,7 +19,7 @@ class CommentaireController extends AbstractController
     #[Route('/ajout_commentaire/{id}', name: 'ajout_commentaire')]
     public function deposer__commentaire(Request $request , EntityManagerInterface $manager, Annonce $annonce, PhotoRepository $repophotos)
     {
-
+        //dd(strval($annonce->getId()));
         $comment = new Commentaire;
         $form = $this->createForm(CommentaireType::class, $comment);
         $form->handleRequest($request);
@@ -37,7 +37,7 @@ class CommentaireController extends AbstractController
                    'success',
                    'Votre commentaire a bien été pris en compte'
                 );
-                return $this->redirectToRoute('accueil');
+                return $this->redirectToRoute('fiche_annonce', ['id'=>$annonce->getId()]);
         }
 
         if($annonce->getPhotos()) // si get photos existe

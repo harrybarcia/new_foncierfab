@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="Un compte existe déjà avec cet email")
+ * @UniqueEntity(fields={"email"}, message="Vos identifiants sont erronés")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -28,7 +28,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(message="Veuillez saisir votre email")
-     * 
+     * @Assert\Regex(pattern="/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/",message="votre email ne peut pas contenir d'espaces ou autres caractères spéciaux")
      */
     private $email;
 
@@ -40,7 +40,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Veuillez saisir votre mot de passe")
      */
     private $password;
 

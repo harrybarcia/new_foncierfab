@@ -54,7 +54,7 @@ class AnnonceController extends AbstractController
         $data=new SearchData(); // je créé un objet et ses propriétés (q et categorie) et je le stocke dans $data
         $data->page = $request->get('page', 1);
 
-/*         dd($data); */
+        /*         dd($data); */
          // je créé mon formulaire qui utilise la classe searchForm que je viens de créé, je précise en second paramètre les données. Comme ça quand je vais faire un handle request ca va modifier cet objet (new search data) qui représente mes données
         $form = $this->createForm(SearchForm::class, $data, [
             'action' => $this->generateUrl('index'),
@@ -102,7 +102,7 @@ class AnnonceController extends AbstractController
             $mesannonces=($annonceObject->getId());
             $comments_tab=sizeof($repocommentaire->findBy(["annonce"=>$mesannonces]));
 
-            $user = $this->getUser()->getId();
+            
             $fav=sizeof($annonceObject->getFavoris());
             
 
@@ -397,7 +397,7 @@ class AnnonceController extends AbstractController
             ]);
         }
         // On va chercher toutes les catégories
-/*         $categories = $cache->get('categories_list', function(ItemInterface $item) use($catRepo){
+        /*         $categories = $cache->get('categories_list', function(ItemInterface $item) use($catRepo){
             $item->expiresAfter(3600);
 
             return $catRepo->findAll();
@@ -438,8 +438,15 @@ class AnnonceController extends AbstractController
      */
     public function like(AnnonceRepository $repoannonce)
     {
-
-        if($this->isGranted('ROLE_USER')){
+        
+        
+        if($this->isGranted('IS_ANONYMOUS')) //si la personne connectée est anonyme
+        {
+            
+            $this->addFlash('success', 'Vous devez vous connecter pour commenter ou liker une annonce');
+            return $this->redirectToRoute('login');;
+        }
+        else{
             $deja_favoris=$this->getUser()->getFavoris();
             $test = $this->repoannonce->find($this->request->request->get('id')); // find (34)
             
@@ -486,9 +493,6 @@ class AnnonceController extends AbstractController
         }
             
         
-        else{
-            return $this->redirectToRoute('login');;
-        }    
             
     }
         

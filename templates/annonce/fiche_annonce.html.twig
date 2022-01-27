@@ -34,18 +34,18 @@
         {% if annonce.photos is empty %}
 
 
-        <img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:320px">
+        <img src="{{ asset('images/imageDefault.jpg') }}" alt="" style="width:320px;margin-bottom: 2em;">
 
         {% endif %}
 </div>
         
         
-        <div style="width:90%;margin:0 auto" id="description">
-            <div>
+        <div style="width:90%;margin:0 auto;" id="description">
+            <div style="font-size: small;padding-left: 21px;">
                 Annonce postée par {{annonce.user.email}} le {{ annonce.dateenregistrement|format_datetime(locale='fr') }}
             </div>
-            <div class="row p-1" style="display:flex;flex-direction:row">
-                <div class="col-md-5 col-sm-11 p-3 col-xs-11 col-xl-5" style="padding:10%">
+            <div class="row p-1" style="display:flex;flex-direction:row;">
+                <div class="col-md-5 col-sm-11 p-3 col-xs-11 col-xl-5" style="padding:10%;border-right:2px #F7F7F7 solid">
                     <div style="text-align: justify;width:90%;justify-content:space-between"><strong>Titre: </strong>
                         <span >{{annonce.titre}} </span>
                         <br>
@@ -58,7 +58,7 @@
                         <br>
                     </div>
                     <div style="text-align: justify; width:90%;justify-content:space-between">
-                        <span><strong>Adresse: </strong> {{annonce.adresse}} </span>
+                        <span><strong>Adresse: </strong> {{annonce.adresse}},  {{annonce.ville}} ({{annonce.cp}})</span>
                     </div>
                 </div>
                 <div  class="col-md-5 col-sm-11 p-3 col-xs-11 col-xl-5" style="color:grey">
@@ -75,7 +75,7 @@
                     </h5>
                     <h5>
                         {% if comments_tab ==1 %}
-                            {{comments_tab}} 1 commentaire a été déposé
+                            {{comments_tab}} commentaire a été déposé
                         
                         {% endif %}
                         {% if comments_tab > 1 %}
@@ -88,7 +88,7 @@
             </div>
 	</div>
         
-
+<br>
 <div style="background-color:#F9F9F9;height:51vh">
 
         

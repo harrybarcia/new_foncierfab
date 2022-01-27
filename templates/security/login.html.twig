@@ -11,10 +11,11 @@
         <div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
     {% endfor %}
 
-<form method="post" >
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<form method="post" style="width: 90%;margin: 0 auto;">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey }}</div>
+                {% endif %}
+    
 
     {% if app.user %}
         <div class="mb-3">
@@ -31,10 +32,15 @@
         <label  for="inputPassword">Mot de passe</label>
         <input class="form-control col-md-4 mx-auto" type="password" name="password" id="inputPassword" autocomplete="current-password" required>
     </div>
+    <div class="col-md-4 col-xl-4 col-lg-4  col-sm-12 mb-2 mx-auto" style="display:flex;flex-direction:row;justify-content:space-around">
+        <div class="mb-3">
+            <a href="{{ path('register') }}">S'inscrire en un clic</a>
+        </div>
         <div class="mb-3">
             <a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
         </div>
-
+    </div>
+    {# <input type="hidden" name="_target_path" value="{{ path('account') }}" /> #}
     <input type="hidden" name="csrf_token" value="{{ csrf_token('login_form') }}">
         
     {#

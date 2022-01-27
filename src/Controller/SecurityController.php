@@ -22,6 +22,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Http\LoginLink\LoginLinkHandler;
 use Symfony\Component\Security\Http\LoginLink\LoginLinkHandlerInterface;
 
+
 class SecurityController extends AbstractController
 {
     private $manager;
