@@ -22,6 +22,7 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class LoginFormAuthenticator extends AbstractAuthenticator
 {
+    
     private $userRepository;
     
 
@@ -35,10 +36,12 @@ class LoginFormAuthenticator extends AbstractAuthenticator
 
     
     
-    public function __construct(UserRepository $userRepository,UrlGeneratorInterface $urlGenerator)
+    public function __construct(UserRepository $userRepository,UrlGeneratorInterface $urlGenerator, SessionInterface $session)
     {
         $this->userRepository=$userRepository;
         $this->urlGenerator = $urlGenerator;
+        $this->session = $session;
+
         
         $test=($urlGenerator->getContext()->getPathInfo()); // renvoit "/afficher/fiche_annonce/21"
         
@@ -53,7 +56,7 @@ class LoginFormAuthenticator extends AbstractAuthenticator
     public function authenticate(Request $request): PassportInterface
     {
         // find a user based on an "email" form field
-        /* dd($request->request->get('email')); */
+        // dd($request->request->get('email'));
         $user = $this->userRepository->findOneByEmail($request->request->get('email'));
         // dd($user);
         // ou findOneBy(['email'=> $request->request->get('email')])
@@ -81,9 +84,16 @@ class LoginFormAuthenticator extends AbstractAuthenticator
         return new RedirectResponse($this->urlGenerator->generate('accueil'));
     }
     
+
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         
+        
+            $flashBag = $this->session->getFlashBag();
+            $flashBag->add('error','votre mot de passe ou votre email ne sont pas valides');
+            // dump(gettype($flashBag)); //objet
+            // dd($flashBag); // name, flash (array) etc///
+
         return new RedirectResponse($this->urlGenerator->generate('login'));
         
     }

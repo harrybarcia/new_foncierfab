@@ -69,7 +69,7 @@ let sujetArray = [];
       // ajout source carte réglementaire
         map.addSource("Zonage", {
           type: "vector",
-          url: "mapbox://harrybarcia.1lyy8d8e", //tilesetID
+          url: "mapbox://harrybarcia.75ym6fnf", //tilesetID
         });
 
         // ajout carte réglementaire en dessous de ma couche watershadow
@@ -77,24 +77,51 @@ let sujetArray = [];
           id: "Zonage", // nom donné à ma couche sur Atom
           type: "fill",
           source: "Zonage",
-          "source-layer": "zonage_perreux-3t2g2s", // nom de la couche sur Mapbox
+          "source-layer": "zonage_fin-b0z9g4", // nom de la couche sur Mapbox
           layout: { visibility: "none" },
           paint: {
             "fill-color": {
-              property: "LIBELLE",
+              property: "idurba",
               type: "categorical",
               stops: [
-                ["UEa", "#96ceb4"],
-                ["UAa", "#d6d4e0"],
-                ["UEb", "#b8a9c9"],
-                ["UL", "#622569"],
-                ["N", "#588c7e"],
-                ["UAb", "#f2e394"],
-                ["UH", "#f2ae72"],
-                ["URa", "#a2836e"],
-                ["UM", "#85C1E9"],
-                ["URb", "#034f84"],
-                ["UB", "#eea29a"],
+                ['94033UCc', '#f2e394'],	
+['94033UAb', '#a2836e'],	
+['94033UBb', '#f2ae72'],	
+['94033UCa', '#a2836e'],	
+['94033UBc', '#a2836e'],	
+['94033UBa1', '#f2ae72'],	
+['94033UCb', '#f2e394'],	
+['94033UCd', '#f2e394'],	
+['94033UBa2', '#f2ae72'],	
+['94033UAa', '#f2e394'],	
+['94080UM', '#f2e394'],	
+['94080UVa', '#a2836e'],	
+['94080UVp', '#a2836e'],	
+['94080UVc', '#a2836e'],	
+['94080UV', '#a2836e'],	
+['94080UVe', '#a2836e'],	
+['94052UPb', '#f2e394'],	
+['94052UP', '#f2e394'],	
+['94052UM', '#f2ae72'],	
+['94052UMc', '#a2836e'],	
+['94052UPv', '#b8a9c9'],	
+['94052UR', '#f2ae72'],	
+['94052UPrv', '#f2e394'],	
+['94058URa', '#b8a9c9'],	
+['94058UEa', '#f2ae72'],	
+['94058UB', '#96ceb4'],	
+['94058UAb', '#f2ae72'],	
+['94058UM', '#96ceb4'],	
+['94058UEb', '#a2836e'],	
+['94058URb', '#f2e394'],	
+['94058UH', '#f2ae72'],	
+['94058UAa', '#a2836e'],	
+['94015UBA', '#a2836e'],	
+['94015UBB', '#f2e394'],	
+['94015UBC', '#b8a9c9'],	
+['94015UB', '#a2836e'],	
+['94015UA', '#a2836e'],	
+
               ],
             },
             "fill-opacity": 1,

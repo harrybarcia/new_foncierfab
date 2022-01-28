@@ -10,11 +10,20 @@
     {% for notification in app.flashes('warning') %}
         <div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
     {% endfor %}
+    {% for notification in app.flashes('error') %}
+        <div class="col-md-6 mx-auto text-center alert alert-danger">{{ notification }}</div>
+    {% endfor %}
+
+
 
 <form method="post" style="width: 90%;margin: 0 auto;">
-                {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey }}</div>
-                {% endif %}
+    {# {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey }}</div>
+    {% endif %} #}
     
 
     {% if app.user %}
