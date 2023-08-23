@@ -28,7 +28,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
     public function __construct(UrlGeneratorInterface $urlGenerator)
     {
         $this->urlGenerator = $urlGenerator;
-        dump("1");
+        //dump("1");
         $test=($urlGenerator->getContext()->getPathInfo()); // renvoit "/afficher/fiche_annonce/21"
         
         return $test;

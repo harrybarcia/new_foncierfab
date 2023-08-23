@@ -19,11 +19,8 @@
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-public_html
 
-test.txt
-test/
-
+vendor
 # config
 # src
 # templates

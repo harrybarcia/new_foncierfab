@@ -63,7 +63,7 @@
       // ajout source carte réglementaire
         map.addSource("Zonage", {
           type: "vector",
-          url: "mapbox://harrybarcia.1lyy8d8e", //tilesetID
+          url: "mapbox://harrybarcia.75ym6fnf", //tilesetID zonage
         });
 
         // ajout carte réglementaire en dessous de ma couche watershadow
@@ -71,27 +71,89 @@
           id: "Zonage", // nom donné à ma couche sur Atom
           type: "fill",
           source: "Zonage",
-          "source-layer": "zonage_perreux-3t2g2s", // nom de la couche sur Mapbox
+          "source-layer": "zonage_fin-b0z9g4", // nom de la couche sur Mapbox
           layout: { visibility: "none" },
           paint: {
             "fill-color": {
-              property: "LIBELLE",
-              type: "categorical",
-              stops: [
-                ["UEa", "#96ceb4"],
-                ["UAa", "#d6d4e0"],
-                ["UEb", "#b8a9c9"],
-                ["UL", "#622569"],
-                ["N", "#588c7e"],
-                ["UAb", "#f2e394"],
-                ["UH", "#f2ae72"],
-                ["URa", "#a2836e"],
-                ["UM", "#85C1E9"],
-                ["URb", "#034f84"],
-                ["UB", "#eea29a"],
+                property: "idurba",
+                type: "categorical",
+                  stops: [
+                  ['94015AUEB', '#f2ae72'],
+                  ['94015AUEA', '#33F9FF'],
+                  ['94015N', '#588c7e'],
+                  ['94015UA', '#d6d4e0'],
+                  ['94015UB', '#85C1E9'],
+                  ['94015UBA', '#b8a9c9'],
+                  ['94015UBB', '#622569'],
+                  ['94015UBC', '#eea29a'],
+                  ['94015UE', '#339FFF'],
+                  ['94015UEA', '#034f84'],
+                  ['94015UF', '#a2836e'],
+                  ['94015UFA', '#f2e394'],
+                  ['94033N', '#96FF33'],
+                  ['94033UAa', '#33F9FF'],
+                  ['94033UAb', '#622569'],
+                  ['94033UBa1', '#CD26D3'],
+                  ['94033UBa2', '#339FFF'],
+                  ['94033UBb', '#f2ae72'],
+                  ['94033UBc', '#034f84'],
+                  ['94033UCa', '#85C1E9'],
+                  ['94033UCb', '#933ADC'],
+                  ['94033UCc', '#b8a9c9'],
+                  ['94033UCd', '#3364FF'],
+                  ['94033UD', '#d6d4e0'],
+                  ['94033UE', '#588c7e'],
+                  ['94033UEa', '#f2e394'],
+                  ['94033UFa', '#a2836e'],
+                  ['94033UFb', '#C7DA22'],
+                  ['94033UFc', '#eea29a'],
+                  ['94033UG', '#7057C5'],
+                  ['94052N', '#588c7e'],
+                  ['94052UM', '#f2ae72'],
+                  ['94052UMc', '#a2836e'],
+                  ['94052UP', '#622569'],
+                  ['94052UPb', '#d6d4e0'],
+                  ['94052UPr', '#b8a9c9'],
+                  ['94052UPrm', '#f2e394'],
+                  ['94052UPrv', '#eea29a'],
+                  ['94052UPv', '#85C1E9'],
+                  ['94052UR', '#034f84'],
+                  ['94058N', '#588c7e'],
+                  ['94058UAa', '#d6d4e0'],
+                  ['94058UAb', '#f2e394'],
+                  ['94058UB', '#eea29a'],
+                  ['94058UEa', '#b8a9c9'],
+                  ['94058UEb', '#b8a9c9'],
+                  ['94058UH', '#f2ae72'],
+                  ['94058UL', '#622569'],
+                  ['94058UM', '#85C1E9'],
+                  ['94058URa', '#a2836e'],
+                  ['94058URb', '#034f84'],
+                  ['94080N', '#77C000'],
+                  ['94080UA', '#b8a9c9'],
+                  ['94080UAa', '#d6d4e0'],
+                  ['94080UC', '#622569'],
+                  ['94080UE', '#588c7e'],
+                  ['94080UEe', '#f2e394'],
+                  ['94080UF', '#85C1E9'],
+                  ['94080UFa', '#f2ae72'],
+                  ['94080UFb', '#a2836e'],
+                  ['94080UL', '#034f84'],
+                  ['94080UM', '#eea29a'],
+                  ['94080UMa', '#527813'],
+                  ['94080UO', '#933ADC'],
+                  ['94080UOa', '#CD26D3'],
+                  ['94080USP', '#7057C5'],
+                  ['94080UV', '#339FFF'],
+                  ['94080UVa', '#C7DA22'],
+                  ['94080UVc', '#3364FF'],
+                  ['94080UVe', '#33F9FF'],
+                  ['94080UVp', '#96FF33'],
+
+
               ],
             },
-            "fill-opacity": 1,
+            "fill-opacity": 0.5,
           },
 
           layout: { visibility: "visible" },
@@ -102,35 +164,93 @@
       // ajout source
       map.addSource("bati", {
         type: "vector",
-        url: "mapbox://harrybarcia.5p71e2pg", //tilesetID
+        // url: "mapbox://harrybarcia.5p71e2pg", //tilesetID
+        url: "mapbox://harrybarcia.cyzfyv08", //tilesetID
       });
-
-      // ajout carte bati avec couleur correspondant à la zone
+      
       map.addLayer({
-        id: "bati", // nom donné à ma couche sur Atom
-
+        id: "bati",
         type: "fill-extrusion",
-
         source: "bati",
-
-        "source-layer": "zonage_perreux_nett-5jtjei", // nom de la couche sur Mapbox
+        // "source-layer": "zonage_perreux_nett-5jtjei", // couche bati d perreux malgré "zonage"
+        "source-layer": "bati_fin-0xpjvn", // couche bati d perreux malgré "zonage"
         layout: { visibility: "visible" },
-
         paint: {     
           "fill-extrusion-color": {
-          property: "LIBELLE",
+          property: "idurba",
           stops: [
-            ["UEa", "#588c7e"],
-            ["UAa", "#a2836e"],
-            ["UEb", "#622569"],
-            ["UL", "#b8a9c9"],
-            ["N", "#588c7e"],
-            ["UAb", "#ffcc5c"],
-            ["UH", "#c83349"],
-            ["URa", "#d6d4e0"],
-            ["UM", "#5DADE2"],
-            ["URb", "#034f84"],
-            ["UB", "#D84315"],
+            ['94015AUEA', '#0B84DC'],
+['94015AUEB', '#c83349'],
+['94015N', '#588c7e'],
+['94015UA', '#a2836e'],
+['94015UB', '#5DADE2'],
+['94015UBA', '#588c7e'],
+['94015UBB', '#b8a9c9'],
+['94015UBC', '#D84315'],
+['94015UE', '#588c7e'],
+['94015UEA', '#034f84'],
+['94015UF', '#d6d4e0'],
+['94015UFA', '#ffcc5c'],
+['94033N', '#509C09'],
+['94033UAa', '#0B84DC'],
+['94033UAb', '#b8a9c9'],
+['94033UBa1', '#56015A'],
+['94033UBa2', '#0B84DC'],
+['94033UBb', '#c83349'],
+['94033UBc', '#034f84'],
+['94033UCa', '#5DADE2'],
+['94033UCb', '#4D0588'],
+['94033UCc', '#588c7e'],
+['94033UCd', '#1035AB'],
+['94033UD', '#a2836e'],
+['94033UE', '#588c7e'],
+['94033UEa', '#ffcc5c'],
+['94033UFa', '#d6d4e0'],
+['94033UFb', '#2D9503'],
+['94033UFc', '#D84315'],
+['94033UG', '#290899'],
+['94052N', '#588c7e'],
+['94052UM', '#c83349'],
+['94052UMc', '#d6d4e0'],
+['94052UP', '#b8a9c9'],
+['94052UPb', '#a2836e'],
+['94052UPr', '#588c7e'],
+['94052UPrm', '#ffcc5c'],
+['94052UPrv', '#D84315'],
+['94052UPv', '#5DADE2'],
+['94052UR', '#034f84'],
+['94058N', '#588c7e'],
+['94058UAa', '#a2836e'],
+['94058UAb', '#ffcc5c'],
+['94058UB', '#D84315'],
+['94058UEa', '#588c7e'],
+['94058UEb', '#588c7e'],
+['94058UH', '#c83349'],
+['94058UL', '#b8a9c9'],
+['94058UM', '#5DADE2'],
+['94058URa', '#d6d4e0'],
+['94058URb', '#034f84'],
+['94080N', '#446907'],
+['94080UA', '#588c7e'],
+['94080UAa', '#a2836e'],
+['94080UC', '#b8a9c9'],
+['94080UE', '#588c7e'],
+['94080UEe', '#ffcc5c'],
+['94080UF', '#5DADE2'],
+['94080UFa', '#c83349'],
+['94080UFb', '#d6d4e0'],
+['94080UL', '#034f84'],
+['94080UM', '#D84315'],
+['94080UMa', '#203302'],
+['94080UO', '#4D0588'],
+['94080UOa', '#56015A'],
+['94080USP', '#290899'],
+['94080UV', '#0B84DC'],
+['94080UVa', '#2D9503'],
+['94080UVc', '#1035AB'],
+['94080UVe', '#0B84DC'],
+['94080UVp', '#509C09'],
+
           ],
           type:"categorical",
         },
@@ -141,7 +261,6 @@
         "fill-extrusion-base": 0, // mettre 'surface_re' fait commencer la hauteur a 20 m pour 20 m² de surface par ex
         "fill-extrusion-opacity": 0.8,
         },
-
       });
 
       // ajout satellite

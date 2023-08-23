@@ -1,3 +1,4 @@
 #!/bin/bash
-echo 'Running Script'
-
+echo "running"
+echo "running2"
+rsync --no-perms -av ./ -i -e 'ssh -p 65002' --progress u419361553@2.57.88.3:public_html --exclude-from=.gitignore --exclude=".*"
